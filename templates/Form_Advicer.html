@@ -54,7 +54,6 @@
         }
         #success{
             width: 100%;
-           
             padding: 0px 0;
             text-align: left;
             background-color: lightgrey;
@@ -85,7 +84,7 @@
 
         <div class="w3-display-container w3-text-black">
 
-            <img src="Header.png" alt="" style="width:100%">
+            <img src="{{ url_for ('static',filename ='Header.png')}}" alt="" style="width:100%">
 
 
             <div class="w3-padding w3-display-topmiddle w3-xxlarge"
@@ -93,9 +92,9 @@
                 <b>ระบบยื่นคำร้องจดทะเบียนเพิ่มเติม</b></div>
             <!--bar-->
          <div class="w3-bar w3-dark-grey  w3-display-left"style="height:34px ; width:89%;margin-left:11%;margin-top:0.72%">
-            <a href="Home_Boss2.html" class="w3-bar-item w3-button">Home</a>
+            <a href="{{ url_for ('home_advisor')}}" class="w3-bar-item w3-button">Home</a>
            
-            <a href="Login_student.html" class="w3-bar-item w3-button w3-black w3-right">Log Out</a>
+            <a href="{{ url_for ('login_student')}}" class="w3-bar-item w3-button w3-black w3-right">Log Out</a>
           </div>
         </div>
         <!--sidebar-->
@@ -117,33 +116,37 @@
         </div>
     </div>
     <div id ="myDIV" class = "w3-padding w3-display-topmiddle" style="margin-top: 10%;">
-            <iframe src="Somsakform.pdf" width="70%" height="600px" style=" margin-left: 18%;">
+            <iframe src="{{ url_for ('static',filename ='studentfinish.pdf')}}" width="70%" height="450px" style=" margin-left: 18%;">
             </iframe>
     </div>
     <div id ="success2" class = "w3-padding w3-display-topmiddle" style="margin-top: 10%;">
-            <iframe src="Somsongform.pdf" width="70%" height="510px" style=" margin-left: 18%;">
+            <iframe src="{{ url_for ('static',filename ='Somsriform.pdf')}}" width="70%" height="580px" style=" margin-left: 18%;">
             </iframe>
     </div>
     <div class= "w3-container">
         <div class="w3-display-container w3-text-black">
            
-            <div  id ="myDIV2" class = "w3-padding w3-display-bottom" style="margin-top: 40%;margin-left: 1.25%;">
+            <div  id ="myDIV2" class = "w3-padding w3-display-bottom" style="margin-top: 25%;margin-left: 1.25%;">
                 <div style="margin-left: 30%;">
                 <form >
-                   
+                    <p>
+                        <label>ระบุเหตุผล
+                            <textarea name= "detail" id= "detail" cols= "83" rows= "7"></textarea>
+                        </label>
+                      </p>
                       <p>
-                        <input onclick="sendFunction()" class="btn" type= "button" name= "button" id= "button" value= "อนุมัติ" />
-                        <a href="FormBoss2.html"><input class="btn" type= "button" name= "button2" id= "button2" value= "ไม่อนุมัติ" /></a>
+                        <input onclick="sendFunction()" class="btn" type= "button" name= "button" id= "button" value= "อนุมัติพร้อมส่งเหตุผล" />
+                        <a href="{{ url_for ('home_advisor2')}}"><input class="btn" type= "button" name= "button2" id= "button2" value= "ไม่อนุมัติ" /></a>
                         
                       </p>
                 </form>
             </div>
             
             </div>
-            <div id="success" class=" w3-padding w3-display-bottom" style="margin-top: 35%;margin-left: 1.25%; height: 700px;">
-                <h1 class="w3-text-light-green" style="font-family: Kanit, sans-serif; margin-left: 46.5%;">อนุมัติ</h1>
+            <div id="success" class=" w3-padding w3-display-bottom" style="margin-top: 28%;margin-left: 1.25%; height: 700px;">
+                <h1 class="w3-text-light-green" style="font-family: Kanit, sans-serif; margin-left: 40%;">ส่งข้อมูลเรียบร้อย</h1>
                 
-                <a href="Home_Boss2.html"><button class="btn" style="font-family: Kanit, sans-serif; margin-left: 35%;" id= "button3">กลับไปยังหน้าแรก</button></a>
+                <a href="{{ url_for ('home_advisor2')}}"><button class="btn" style="font-family: Kanit, sans-serif; margin-left: 35%;" id= "button3">กลับไปยังหน้าแรก</button></a>
             </div>
             
             <script>
